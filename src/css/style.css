@@ -1,0 +1,247 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.app-root {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 450px;
+          flex: 1 1 450px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  border: 1px solid black;
+}
+
+.app-root .main-area {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 50%;
+          flex: 1 0 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  border: 1px solid black;
+}
+
+.app-root .main-area .word-area {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border: 1px solid black;
+}
+
+.app-root .main-area .word-area .word {
+  border: 1px solid grey;
+  background-color: #ccc;
+  font-weight: bold;
+  text-transform: lowercase;
+  border-radius: 4px;
+  padding: 4px 7px;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  position: relative;
+}
+
+.app-root .main-area .word-area .word-powerup_50 {
+  border-color: blue;
+  background-color: lightseagreen;
+}
+
+.app-root .main-area .word-area .word-powerup_answer {
+  border-color: yellow;
+  background-color: lightgreen;
+}
+
+.app-root .main-area .answers-area {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 90px;
+          flex: 0 0 90px;
+  border: 1px solid black;
+  padding: 8px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.app-root .main-area .answers-area > * {
+  margin: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.app-root .main-area .answers-area button {
+  border: 1px solid grey;
+  background-color: lightblue;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 4px;
+  padding: 4px 7px;
+  height: 36px;
+  line-height: 28px;
+  vertical-align: middle;
+}
+
+.app-root .main-area .gameover {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 150px;
+}
+
+.app-root .main-area .restart-button {
+  margin: auto;
+  display: block;
+  margin-top: 16px;
+  height: 64px;
+  width: 120px;
+  border-radius: 64px;
+  border: 1px solid #111;
+  background-color: cyan;
+}
+
+.app-root .sidebar {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 120px;
+          flex: 0 0 120px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  border: 1px solid black;
+}
+
+.app-root .sidebar .game-info-area {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border: 1px solid black;
+  padding: 16px;
+}
+
+.app-root .sidebar .game-info-area .lives {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.app-root .sidebar .game-info-area .lives .live {
+  width: 14px;
+  height: 14px;
+  background-color: red;
+  border: 1px solid red;
+}
+
+.app-root .sidebar .game-info-area .lives .live_empty {
+  background-color: initial;
+}
+
+.app-root .sidebar .powerups-area {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 90px;
+          flex: 0 0 90px;
+  border: 1px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 8px;
+}
+
+.app-root .sidebar .powerups-area > *:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.app-root .sidebar .powerups-area button {
+  border: 1px solid green;
+  background-color: greenyellow;
+  border-radius: 50%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 64px;
+  height: 64px;
+  line-height: 64px;
+  padding: 0;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.app-root .sidebar .powerups-area button:disabled {
+  border-color: grey;
+  background-color: #ccc;
+}
+/*# sourceMappingURL=style.css.map */

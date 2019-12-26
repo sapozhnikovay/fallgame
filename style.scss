@@ -1,0 +1,150 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.app-root {
+  flex: 1 1 450px;
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: stretch;
+  border: 1px solid black;
+  .main-area {
+    flex: 1 0 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    border: 1px solid black;
+    .word-area {
+      flex: 1;
+      border: 1px solid black;
+      .word {
+        border: 1px solid grey;
+        background-color: #ccc;
+        font-weight: bold;
+        text-transform: lowercase;
+        border-radius: 4px;
+        padding: 4px 7px;
+        width: min-content;
+        position: relative;
+        &-powerup_50 {
+          border-color: blue;
+          background-color: lightseagreen;
+        }
+        &-powerup_answer {
+          border-color: yellow;
+          background-color: lightgreen;
+        }
+      }
+    }
+    .answers-area {
+      flex: 0 0 90px;
+      border: 1px solid black;
+      padding: 8px 0;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      > * {
+        margin: 8px;
+        display: flex;
+      }
+
+      button {
+        border: 1px solid grey;
+        background-color: lightblue;
+        font-weight: bold;
+        text-transform: uppercase;
+        border-radius: 4px;
+        padding: 4px 7px;
+        height: 36px;
+        line-height: 28px;
+        vertical-align: middle;
+      }
+    }
+
+    .gameover{
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 150px;
+    }
+
+    .restart-button {
+      margin: auto;
+      display: block;
+      margin-top: 16px;
+      height: 64px;
+      width: 120px;
+      border-radius: 64px;
+      border: 1px solid #111;
+      background-color: cyan;
+    }
+  }
+
+  .sidebar {
+    flex: 0 0 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    border: 1px solid black;
+    .game-info-area {
+      flex: 1;
+      border: 1px solid black;
+      padding: 16px;
+      .lives {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        .live {
+          width: 14px;
+          height: 14px;
+          background-color: red;
+          border: 1px solid red;
+          &_empty {
+            background-color: initial;
+          }
+        }
+      }
+    }
+    .powerups-area {
+      flex: 0 0 90px;
+      border: 1px solid black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 8px;
+      > *:not(:last-child) {
+        margin-bottom: 16px;
+      }
+      button {
+        border: 1px solid green;
+        background-color: greenyellow;
+        border-radius: 50%;
+        flex: 1;
+        width: 64px;
+        height: 64px;
+        line-height: 64px;
+        padding: 0;
+        font-weight: bold;
+        text-transform: uppercase;
+
+        &:disabled {
+          border-color: grey;
+          background-color: #ccc;
+        }
+      }
+    }
+  }
+}
