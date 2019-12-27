@@ -6,10 +6,12 @@ let powerupFullButton;
 let scoreLabel;
 let powerupHalfLabel;
 let powerupFullLabel;
+let startButton;
 
 let wordElement;
 let position = 0;
-let speed = 1;
+let max_position = 100;
+let speed = 0.5;
 const TIMEOUT = 20;
 let timeoutHandle;
 const MAX_LIVES = 5;
@@ -24,6 +26,11 @@ export function init() {
   powerupFullButton = document.getElementById('powerup-button-full');
   powerupHalfLabel = document.getElementById('powerups-count-50');
   powerupFullLabel = document.getElementById('powerups-count-answers');
+  startButton = document.getElementById('start-button');
+
+  startButton.addEventListener('click', () => {
+    window.dispatchEvent(new CustomEvent('restart'));
+  });
 
   powerupHalfButton.addEventListener('click', () => {
     window.dispatchEvent(
@@ -42,6 +49,12 @@ export function init() {
       })
     );
   });
+
+  window.onresize = () => {
+    if (wordElement) {
+      max_position = ((wordArea.clientHeight - wordElement.getBoundingClientRect().height) / wordArea.clientHeight) * 100;
+    }
+  };
 }
 
 export function setWord(word, isHalf = false, isFull = false) {
@@ -50,7 +63,11 @@ export function setWord(word, isHalf = false, isFull = false) {
   cssClass += isFull ? ' word-powerup_answer' : '';
   wordArea.innerHTML = `<div id="current-word" class="${cssClass}">${word}</div>`;
   wordElement = document.getElementById('current-word');
+  max_position = ((wordArea.clientHeight - wordElement.getBoundingClientRect().height) / wordArea.clientHeight) * 100;
   position = 0;
+  const leftPosition = Math.random() * (wordArea.clientWidth - wordElement.getBoundingClientRect().width);
+  wordElement.style.left = `${leftPosition}px`;
+
   powerupOnWord = null;
   if (isHalf) powerupOnWord = 'half';
   if (isFull) powerupOnWord = 'full';
@@ -61,8 +78,20 @@ export function clearWord() {
   wordElement.remove();
 }
 
-export function showGameOver(score) {
-  wordArea.innerHTML = `<div id="gameover" class="gameover">Game over!<br/> Your score is: ${score}</div>`;
+export function getPositionLeft() {
+  return Math.round(max_position - position);
+}
+
+export function resetUI() {
+  clearTimeout(timeoutHandle);
+  wordElement.remove();
+  clearAnswers();
+  powerupHalfButton.setAttribute('disabled', 'disabled');
+  powerupFullButton.setAttribute('disabled', 'disabled');
+}
+
+export function showGameOver(score, rightAnswers, totalWords) {
+  wordArea.innerHTML = `<div id="gameover" class="gameover">Game over!<br/> Your score is: ${score} <br/> Right answers: ${rightAnswers} of ${totalWords}</div>`;
   const restartButton = document.createElement('button');
   restartButton.className = 'restart-button';
   restartButton.innerText = 'RESTART';
@@ -72,11 +101,11 @@ export function showGameOver(score) {
 
 function moveWord() {
   position += speed;
-  if (position > 300) {
+  if (position > max_position) {
     clearWord();
     window.dispatchEvent(new CustomEvent('failure'));
   } else {
-    wordElement.style.top = `${position}px`;
+    wordElement.style.top = `${position}%`;
     timeoutHandle = setTimeout(moveWord, TIMEOUT);
   }
 }
@@ -135,10 +164,11 @@ export function setPowerups(half, full) {
 export function setLives(lives) {
   const livesElements = [];
   for (let i = 1; i <= MAX_LIVES; i++) {
-    const element = document.createElement('div');
-    element.className = 'live';
+    const element = document.createElement('i');
     if (i > lives) {
-      element.className += ' live_empty';
+      element.className = 'far fa-heart live';
+    } else {
+      element.className = 'fas fa-heart live';
     }
     livesElements.push(element);
   }

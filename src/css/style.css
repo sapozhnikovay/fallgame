@@ -93,22 +93,22 @@ body {
       -ms-flex: 0 0 90px;
           flex: 0 0 90px;
   border: 1px solid black;
-  padding: 8px 0;
+  padding: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
 }
 
 .app-root .main-area .answers-area > * {
@@ -124,10 +124,12 @@ body {
   font-weight: bold;
   text-transform: uppercase;
   border-radius: 4px;
-  padding: 4px 7px;
-  height: 36px;
-  line-height: 28px;
+  padding: 0px;
+  line-height: 24px;
   vertical-align: middle;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .app-root .main-area .gameover {
@@ -192,18 +194,17 @@ body {
 .app-root .sidebar .game-info-area .lives .live {
   width: 14px;
   height: 14px;
-  background-color: red;
-  border: 1px solid red;
+  color: red;
 }
 
 .app-root .sidebar .game-info-area .lives .live_empty {
-  background-color: initial;
+  color: white;
 }
 
 .app-root .sidebar .powerups-area {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 90px;
-          flex: 0 0 90px;
+      -ms-flex: 0 0 152px;
+          flex: 0 0 152px;
   border: 1px solid black;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -243,5 +244,9 @@ body {
 .app-root .sidebar .powerups-area button:disabled {
   border-color: grey;
   background-color: #ccc;
+}
+
+.app-root button:focus {
+  outline: none;
 }
 /*# sourceMappingURL=style.css.map */

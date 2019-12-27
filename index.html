@@ -6,39 +6,38 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="src/css/style.css" />
     <title>Word game</title>
+    <script src="https://kit.fontawesome.com/50db867f0a.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <section class="app-root">
       <div id="main-screen" class="main-area">
         <div id="word-area" class="word-area">
-          <div id="current-word" class="word">current</div>
+          <div id="gameover" class="gameover">
+            <button id="start-button" class="restart-button">START GAME!</button>
+          </div>
         </div>
-        <div id="answers-area" class="answers-area">
-          <button>answer1</button>
-          <button>looonganswer</button>
-          <button>answer3</button>
-          <button>answer4</button>
-        </div>
+        <div id="answers-area" class="answers-area"></div>
       </div>
       <div id="sidebar" class="sidebar">
         <div id="game-info" class="game-info-area">
           <div id="lives" class="lives">
-            <div class="live"></div>
-            <div class="live"></div>
-            <div class="live"></div>
-            <div class="live"></div>
-            <div class="live live_empty"></div>
+            <i class="fas fa-heart live"></i>
+            <i class="fas fa-heart live"></i>
+            <i class="fas fa-heart live"></i>
+            <i class="fas fa-heart live"></i>
+            <i class="fas fa-heart live"></i>
           </div>
-          <h3 id="score" class="score">12834</h3>
-          <h4>50/50: <span id="powerups-count-50">2</span></h4>
+          <h3 id="score" class="score">0</h3>
+          <h4>50/50: <span id="powerups-count-50">0</span></h4>
           <h4>Answers: <span id="powerups-count-answers">0</span></h4>
         </div>
         <div id="powerups" class="powerups-area">
-          <button id="powerup-button-half" type="button">50/50</button>
+          <button id="powerup-button-half" type="button" disabled>50/50</button>
           <button id="powerup-button-full" type="button" disabled>Answer</button>
         </div>
       </div>
     </section>
   </body>
+  <script type="module" src="/lib/random-words.js"></script>
   <script type="module" src="/src/js/main.js"></script>
 </html>
